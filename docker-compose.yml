@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  django_recipe_api:
+    build:
+      context: .
+    ports:
+      - "80:8000"
+    volumes:
+      - .:/shopping_cart
+    command: sh -c "python shopping_cart/manage.py makemigrations && python shopping_cart/manage.py migrate && python shopping_cart/manage.py runserver 0.0.0.0:8000"
